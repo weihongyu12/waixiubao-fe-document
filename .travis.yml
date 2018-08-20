@@ -2,10 +2,6 @@ language: node_js
 node_js:
 - '10'
 sudo: true
-before_install:
-- mkdir -p ~/.ssh
-- echo "${GH_TOKEN}" >> ~/.ssh/id_dsa
-- chmod 600 ~/.ssh/id_dsa
 install:
 - 'yarn install'
 script:
