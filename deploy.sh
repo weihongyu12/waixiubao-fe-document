@@ -14,6 +14,6 @@ git config user.email "weihongyu12@outlook.com"
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f https://${GH_TOKEN}@github.com/weihongyu12/waixiubao-fe.github.io.git master
+git push -f https://${GH_TOKEN}@github.com/weihongyu12/weihongyu12.github.io.git master
 
 cd -
