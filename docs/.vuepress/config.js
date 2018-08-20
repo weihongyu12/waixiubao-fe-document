@@ -8,7 +8,7 @@ module.exports = {
     nav: [
       {text: '首页', link: '/'},
       {text: '代码', link: '/code/'},
-      {text: '构建', link: '/build/'},
+      {text: '构建流程', link: '/build/'},
       {text: '测试', link: '/test/'},
       {text: '功能设计', link: '/features/'},
     ],

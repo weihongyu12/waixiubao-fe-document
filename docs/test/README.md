@@ -2,12 +2,12 @@
 
 ## 静态检查
 
-静态检查工具使用ESLint，在出现错误时，不允许构建，并且不允许提交到Git
+静态检查工具使用 ESLint，在出现错误时，不允许构建，并且不允许提交到Git
 
-ESLint检查采用以下两个标准同时使用：
+ESLint 检查采用以下两个标准同时使用：
 
-* [eslint-config-airbnb-base](https://airbnb.io/javascript)：Airbnb出品的JavaScript风格指南
-* [eslint-plugin-vue](https://cn.vuejs.org/v2/style-guide/)：Vue官方风格指南，级别使用`plugin:vue/recommended`(优先级 C：推荐)
+* [eslint-config-airbnb-base](https://airbnb.io/javascript)：Airbnb 出品的 JavaScript 风格指南
+* [eslint-plugin-vue](https://cn.vuejs.org/v2/style-guide/)：Vue 官方风格指南，级别使用 `plugin:vue/recommended`(优先级 C：推荐)
 
 ```javascript
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
 }
 ```
 
-为了方便开发，我们使用了`prettier-eslint-cli`格式化代码
+为了方便开发，我们使用了 `prettier-eslint-cli` 格式化代码
 
 ```bash
 npm install prettier-eslint-cli --save-dev

@@ -26,10 +26,10 @@
 
 ## 错误监控
 
-错误监控采用 [Sentry](https://docs.sentry.io/clients/javascript/integrations/vue/)，可参考安装代码
+错误监控采用 [Sentry](https://docs.sentry.io/clients/javascript/integrations/vue/)，可参考安装代码。
 
 ## 用户行为统计
 
-用户行为统计[百度统计](https://tongji.baidu.com/web/welcome/login)，可参考安装代码
+用户行为统计[百度统计](https://tongji.baidu.com/web/welcome/login)，可参考安装代码。
 
 ## 性能监控

@@ -6,40 +6,40 @@
 
 ### 框架
 
-框架采用[Vue](https://vuejs.org/)
+框架采用 [Vue](https://vuejs.org/)
 
 主要采用以下特性：
 
 * 单文件组件
 * 路由
 * 状态管理
-* 虚拟DOM
+* 虚拟 DOM
 * 响应式 (Reactive) 和组件化 (Composable) 的视图组件
 
 不使用以下特性：
 
 * TypeScript
-* 客户端渲染
+* 服务端渲染
 
 ![MVVM](./images/mvvm.png)
 
 ### UI组件
 
-UI组件采用[Mand Mobile](https://didi.github.io/mand-mobile)，Mand Mobile是滴滴出品的一款适用于金融场景的Vue.js组件，可以满足外修宝，汽修和金融两个场景的需求
+UI组件采用 [Mand Mobile](https://didi.github.io/mand-mobile)，Mand Mobile 是滴滴出品的一款适用于金融场景的Vue.js组件，可以满足外修宝，汽修和金融两个场景的需求。
 
-[Font Awesome](https://fontawesome.com/)是一款流行的图标库，拥有多达一千二百多个免费图标，其中Automotive类目下的图标适合外修宝使用。使用Font Awesome应该注意，应该按需引入使用的图标，避免文件过大
+[Font Awesome](https://fontawesome.com/) 是一款流行的图标库，拥有多达一千二百多个免费图标，其中 Automotive 类目下的图标适合外修宝使用。使用 Font Awesome 应该注意，应该按需引入使用的图标，避免文件过大。
 
-[normalize.css](https:necolas.github.io/normalize.css/)是Mand Mobile推荐的reset样式，予以采用
+[normalize.css](https:necolas.github.io/normalize.css/) 是 Mand Mobile 推荐的 reset 样式，予以采用。
 
-其他UI组件为自定义样式组件或者局部组件，在此不再一一赘述
+其他UI组件为自定义样式组件或者局部组件，在此不再一一赘述。
 
 ### 主要第三方库
 
-[Fast Click](https://github.com/ftlabs/fastclick)用于解决移动浏览器点击延迟的问题
+[Fast Click](https://github.com/ftlabs/fastclick) 用于解决移动浏览器点击延迟的问题。
 
-[localForage](https://localforage.github.io/localForage/)用于本地indexedDB存储，可以跟PWA配合
+[localForage](https://localforage.github.io/localForage/) 用于本地 indexedDB 存储，可以跟 PWA 配合。
 
-[whatwg-fetch](https://github.com/github/fetch)用于不支持Fetch API浏览器的Fetch Polyfill
+[whatwg-fetch](https://github.com/github/fetch) 用于不支持 Fetch API 浏览器的 Fetch Polyfill。
 
 以上三款均是全局第三方库，其他第三方库正在整理
 
@@ -47,11 +47,11 @@ UI组件采用[Mand Mobile](https://didi.github.io/mand-mobile)，Mand Mobile是
 
 ![应用框架](./images/data-interaction.png)
 
-与服务器的通信交互以HTTP协议为主，同时辅助其他方式
+与服务器的通信交互以HTTP协议为主，同时辅助其他方式。
 
 ### RESTful
 
-请求RESTful API总是以HTTP方式：
+请求 RESTful API 总是以 HTTP 方式：
 
 ```http request
 GET /article 列出所有文章
@@ -62,16 +62,16 @@ DELETE /article/${ID} 删除指定文章
 ```
 
 ::: tip
-使用[Fetch API](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)构建HTTP请求，这是一个新的推荐方式，并且支持PWA
+使用 [Fetch API](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API) 构建 HTTP 请求，这是一个新的推荐方式，并且支持PWA。
 :::
 
 ### GraphQL
 
-GraphQL是一种新型的查询语言，目标是用于取代RESTful，可用于一些不重要的功能接口上做尝试。
+GraphQL 是一种新型的查询语言，目标是用于取代 RESTful，可用于一些不重要的功能接口上做尝试。
 
 ### WebSocket
 
-对于实时通信应该使用WebSocket，尽量避免轮询和长轮询
+对于实时通信应该使用 WebSocket，尽量避免轮询和长轮询。
 
 ## 性能
 
@@ -79,7 +79,7 @@ GraphQL是一种新型的查询语言，目标是用于取代RESTful，可用于
 
 #### 使用PWA
 
-PWA在构建时已经默认使用，PWA将为外修宝带来以下优点：
+PWA 在构建时已经默认使用，PWA 将为外修宝带来以下优点：
 
 * **渐进式** - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的
 * **连接无关性** - 能够借助 Service Worker 在离线或者网络较差的情况下正常访问
@@ -92,7 +92,7 @@ PWA在构建时已经默认使用，PWA将为外修宝带来以下优点：
 * **可链接** - 通过链接即可分享内容，无需下载安装
 
 ::: danger
-无论何时都不能关闭PWA
+无论何时都不能关闭PWA。
 :::
 
 
@@ -127,8 +127,8 @@ DNS 预读取是一项使浏览器主动去执行域名解析的功能，其范�
 DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机网络上特别明显。预读取 DNS 能让延迟明显减少一些。
 
 ```html
-<link rel="dns-prefetch" href="//cdn.example.com">
-<link rel="dns-prefetch" href="//api.example.com">
+<link rel="dns-prefetch" href="//cdn.waixiubao.com">
+<link rel="dns-prefetch" href="//api.waixiubao.com">
 ```
 
 ### 服务器
@@ -137,22 +137,22 @@ DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机�
 
 #### 使用CDN
 
-对于静态资源，尽量使用CDN进行网络加速。CDN通过部署在不同地区的服务器来提高客户的下载速度。
+对于静态资源，尽量使用 CDN 进行网络加速。CDN 通过部署在不同地区的服务器来提高客户的下载速度。
 
 ::: warning
-CDN的采购需要一定的成本
+CDN的采购需要一定的成本。
 :::
 
 #### 使用HTTP/2
 
-静态资源的加载可以采用HTTP/2，HTTP/2将带来如下优势：
+静态资源的加载可以采用 HTTP/2，HTTP/2 将带来如下优势：
 
-* **新的二进制格式（Binary Format）**，HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。
-* **多路复用（MultiPlexing）**，即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的id将request再归属到各自不同的服务端请求里面。
-* **header压缩**，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。
+* **新的二进制格式（Binary Format）**，HTTP1.x 的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑 HTTP2.0 的协议解析决定采用二进制格式，实现方便且健壮。
+* **多路复用（MultiPlexing）**，即连接共享，即每一个 request 都是是用作连接共享机制的。一个 request 对应一个 id，这样一个连接上可以有多个 request，每个连接的 request 可以随机的混杂在一起，接收方可以根据 request 的 id 将 request 再归属到各自不同的服务端请求里面。
+* **header 压缩**，HTTP2.0 使用 encoder 来减少需要传输的 header 大小，通讯双方各自 cache 一份 header fields 表，既避免了重复 header 的传输，又减小了需要传输的大小。
 * **服务端推送（server push）**，服务端会将资源文件推送给客户端，当客户端再次尝试获取资源时就可以直接从缓存中获取到，不用再发请求了。
 
-当使用了HTTP/2之后，以下优化手段将不再适用：
+当使用了 HTTP/2 之后，以下优化手段将不再适用：
 
 * 合并精灵图
 * 内联代码
@@ -167,9 +167,9 @@ server {
 }
 ```
 
-#### 添加Cache-Control和Expires
+#### 添加 Cache-Control 和 Expires
 
-使用HTTP缓存，有助于提高网络请求性能，需要配置`Cache-Control`和`Expires`响应头，并设置一个较长的过期时间。
+使用HTTP缓存，有助于提高网络请求性能，需要配置 `Cache-Control` 和 `Expires` 响应头，并设置一个较长的过期时间。
 
 ```
 # nginx.conf
@@ -179,10 +179,10 @@ server {
 ```
 
 ::: tip
-Cache-Control的优先级高于Expires
+Cache-Control 的优先级高于 Expires。
 :::
 
-#### 配置ETags
+#### 配置 ETags
 
 ```
 # nginx.conf
@@ -191,9 +191,9 @@ server {
 }
 ```
 
-#### Gzip压缩传输文件
+#### Gzip 压缩传输文件
 
-Gzip通常可以减少70%网页内容的大小，包括脚本、样式表、图片等文件。Gzip比deflate更高效，主流服务器都有相应的压缩支持模块。
+Gzip 通常可以减少 70% 网页内容的大小，包括脚本、样式表、图片等文件。Gzip 比 deflate 更高效，主流服务器都有相应的压缩支持模块。
 
 ```
 # nginx.conf
@@ -204,26 +204,26 @@ server {
 
 ### Cookie
 
-#### 减少Cookie大小
+#### 减少 Cookie 大小
 
-* 去除没有必要的cookie，如果网页不需要cookie就完全禁掉
-* 将cookie的大小减到最小
-* 注意cookie设置的domain级别，没有必要情况下不要影响到sub-domain
+* 去除没有必要的 cookie，如果网页不需要 cookie 就完全禁掉
+* 将 cookie 的大小减到最小
+* 注意 cookie 设置的 domain 级别，没有必要情况下不要影响到 sub-domain
 * 设置合适的过期时间，比较长的过期时间可以提高响应速度。
 
 ### 图片
 
-#### 使用WebP
+#### 使用 WebP
 
-优先启用WebP格式的图像文件，获取更高的压缩率，从而减少请求时间
+优先启用 WebP 格式的图像文件，获取更高的压缩率，从而减少请求时间。
 
-下载[WebP插件](https://developers.google.com/speed/webp/)并通过命令行转化图像文件为webp格式
+下载 [WebP 插件](https://developers.google.com/speed/webp/)并通过命令行转化图像文件为webp格式。
 
 ```bash
 cwebp -q 100 image.png -o image.webp
 ```
 
-在HTML中启用WebP
+在 HTML 中启用 WebP：
 
 ```html
 <picture>
@@ -235,7 +235,7 @@ cwebp -q 100 image.png -o image.webp
 
 #### 处理自适应图形
 
-在图片加载时，可以根据设备加载合适的图片，从而减少请求图片的文件大小
+在图片加载时，可以根据设备加载合适的图片，从而减少请求图片的文件大小。
 
 ```html
 <picture>
@@ -249,12 +249,12 @@ cwebp -q 100 image.png -o image.webp
 
 ## 安全
 
-### 使用HTTPS
+### 使用 HTTPS
 
-所有API和静态资源的请求，**必须开启HTTPS**
+所有 API 和静态资源的请求，**必须开启 HTTPS**。
 
 ::: tip
-建议HTTPS使用TLS v1.3协议
+建议 HTTPS 使用 TLS v1.3 协议。
 :::
 
 ```
@@ -281,7 +281,7 @@ server {
 
 ### 启用跨域
 
-在HTML5中，一些 HTML 元素提供了对 CORS 的支持， 它允许你配置元素获取数据的 CORS 请求。
+在 HTML5 中，一些 HTML 元素提供了对 CORS 的支持， 它允许你配置元素获取数据的 CORS 请求。
 
 ```javascript
 // vue.config.js
@@ -290,21 +290,21 @@ module.exports = {
 }
 ```
 
-生成的HTML会在`<link>`和`<script>`添加`crossorigin`属性，浏览器将执行一个远程脚本的脚本而不发送用户凭据。
+生成的 HTML 会在 `<link>` 和 `<script>` 添加 `crossorigin` 属性，浏览器将执行一个远程脚本的脚本而不发送用户凭据。
 
 ```html
-<script src="https://example.com/example-framework.js"
+<script src="https://waixiubao.com/example.js"
         crossorigin="anonymous"></script>
 ```
 ::: tip
-如果需要发送用户凭据需要将`crossorigin`设置为`use-credentials`
+如果需要发送用户凭据需要将 `crossorigin` 设置为 `use-credentials`。
 :::
 
 ### 启用子资源完整性校验
 
 子资源完整性(SRI)是允许浏览器检查其获得的资源（例如从 CDN 获得的）是否被篡改的一项安全特性。它通过验证获取文件的哈希值是否和你提供的哈希值一样来判断资源是否被篡改。
 
-通过以下配置，启用子资源完整性
+通过以下配置，启用子资源完整性：
 
 ```javascript
 // vue.config.js
@@ -313,7 +313,7 @@ module.exports = {
 }
 ```
 
-服务器在 CSP 头部添加 require-sri-for 指令进行验证
+服务器在 CSP 头部添加 require-sri-for 指令进行验证：
 
 ```
 # nginx.conf
@@ -322,10 +322,10 @@ server {
 }
 ```
 
-启用子资源完整性验证，生成的HTML会在`<link>`和`<script>`添加`integrity`属性
+启用子资源完整性验证，生成的 HTML 会在 `<link>` 和 `<script>` 添加 `integrity` 属性。
 
 ```html
-<script src="https://example.com/example-framework.js"
+<script src="https://waixiubao.com/example.js"
         integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
         crossorigin="anonymous"></script>
 ```
@@ -338,7 +338,7 @@ server {
 
 #### v-html
 
-慎用`v-html`，动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，**绝不要**对用户提供的内容使用插值。
+慎用 `v-html` ，动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，**绝不要**对用户提供的内容使用插值。
 
 ::: danger
 动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，**绝不要**对用户提供的内容使用插值。
@@ -346,7 +346,7 @@ server {
 
 #### CSP
 
-参见[CSP](#内容安全策略csp)
+参见 [CSP](#内容安全策略-csp)
 
 #### X-Frame-Options
 
@@ -375,7 +375,7 @@ server {
 
 #### X-Download-Options:noopen
 
-禁用下载框Open按钮，防止下载文件默认被打开 XSS
+禁用下载框 Open 按钮，防止下载文件默认被打开 XSS。
 
 ```
 # nginx.conf
@@ -386,7 +386,7 @@ server {
 
 #### X-Content-Type-Options:nosniff
 
-禁用浏览器自动嗅探MIME功能例如`text/plain`却当成`text/html`渲染，特别当本站点 serve 的内容未必可信的时候。
+禁用浏览器自动嗅探 MIME 功能例如 `text/plain` 却当成 `text/html` 渲染，特别当本站点 serve 的内容未必可信的时候。
 
 ```
 # nginx.conf
@@ -397,7 +397,7 @@ server {
 
 #### X-XSS-Protection
 
-浏览器提供的一些XSS检测与防范
+浏览器提供的一些 XSS 检测与防范。
 
 ```
 # nginx.conf
@@ -406,32 +406,34 @@ server {
 }
 ```
 
-### 内容安全策略CSP
+### 内容安全策略 CSP
 
 内容安全策略 (CSP)  是一个附加的安全层，用于帮助检测和缓解某些类型的攻击，包括跨站脚本 (XSS) 和数据注入等攻击。 这些攻击可用于实现从数据窃取到网站破坏或作为恶意软件分发版本等用途。
 
-CSP的主要目标是减少和报告XSS攻击。XSS攻击利用浏览器对从服务器接受的内容的信任。恶意的脚本在受害的浏览器被执行, 因为浏览器相信内容源，甚至当内容源并不是从它应该来的地方过来的。
+CSP 的主要目标是减少和报告 XSS 攻击。XSS 攻击利用浏览器对从服务器接受的内容的信任。恶意的脚本在受害的浏览器被执行, 因为浏览器相信内容源，甚至当内容源并不是从它应该来的地方过来的。
 
-CSP使服务器管理员能够通过制定浏览器能够执行的可信赖脚本的域名来减少或者消除由XSS可能出现的矢量。 一个兼容CSP的浏览器将只会执行加载与白名单域名的源文件的脚本，忽略那些其他的脚本（包括内联脚本和事件操控HTML属性）
+CSP 使服务器管理员能够通过制定浏览器能够执行的可信赖脚本的域名来减少或者消除由 XSS 可能出现的矢量。 一个兼容 CSP 的浏览器将只会执行加载与白名单域名的源文件的脚本，忽略那些其他的脚本（包括内联脚本和事件操控 HTML 属性）。
 
-作为一种最终的保护，想要禁止脚本的站点可以选择全局禁止脚本执行
+作为一种最终的保护，想要禁止脚本的站点可以选择全局禁止脚本执行。
 
-为了重新约束内容被下载的域名, 服务端能够制定那种协议能够被使用；例如（理论上，从安全的立足点来看），一个服务制定所有的内容都通过HTTPS协议来加载。从而减少数据包监听攻击
+为了重新约束内容被下载的域名, 服务端能够制定那种协议能够被使用；例如（理论上，从安全的立足点来看），一个服务制定所有的内容都通过 HTTPS 协议来加载。从而减少数据包监听攻击。
 
-使用CSP需要使用`Content-Security-Policy`，同时，现代浏览器使用一段内联脚本来避免 Safari 10 重复加载脚本包，所以如果你在使用一套严格的 CSP，你需要这样显性地允许内联脚本，此外，子资源完整性(SRI)校验也是通过CSP配置完成的，所以完整的CSP请求头如下：
+使用 CSP 需要使用 `Content-Security-Policy`，同时，现代浏览器使用一段内联脚本来避免 Safari 10 重复加载脚本包，所以如果你在使用一套严格的 CSP，你需要这样显性地允许内联脚本，此外，子资源完整性(SRI)校验也是通过 CSP 配置完成的，所以完整的CSP请求头如下：
 
 ```
-Content-Security-Policy: default-src 'self' 'https://cdn.exmaple.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style;
+Content-Security-Policy: default-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style;
 ```
 
 ```
 # nginx.conf
 server {
-  add_header Content-Security-Policy "default-src 'self' 'https://cdn.exmaple.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style";
+  add_header Content-Security-Policy "default-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style";
 }
 ```
 
 ## 兼容性
+
+兼容性采用**优雅降级**方案：一开始就构建站点的完整功能，然后针对浏览器进行降级处理。
 
 ### 兼容级别
 
@@ -454,6 +456,8 @@ server {
 * D：不支持
 
 ### browserslist配置
+
+浏览器只兼容最近 2 个版本和市场占有率大于 1% 的版本，不支持IE，不支持停止支持的浏览器。
 
 ```json
 {

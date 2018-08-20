@@ -1,8 +1,8 @@
-# 流程
+# 构建流程
 
 ## 手脚架
 
-手脚架使用@vue/cli 3.x，启用自定义配置，配置流程如下：
+手脚架使用 [@vue/cli 3.x](https://cli.vuejs.org/)，启用自定义配置，配置流程如下：
 
 ```bash
 # 选择项目所需要的特性：
@@ -28,6 +28,15 @@ Check the features needed for your project:
 
 ::: tip
 除TypeScript必选
+:::
+
+```bash
+# 路由使用 history mode? (需要配置正式服务器) Y
+Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n) Y
+```
+
+::: tip
+关于history mode的配置可以查看[这里](https://router.vuejs.org/guide/essentials/history-mode.html)
 :::
 
 ```bash
@@ -123,13 +132,13 @@ Content-Security-Policy: script-src 'self' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkO
 
 ### Webpack
 
-Webpack用于应用打包，主要工作文件转码、合并、切割、压缩等等，如果需要单独配置请查看[@vue/cli文档](https://cli.vuejs.org/zh/guide/webpack.html)
+Webpack 用于应用打包，主要工作文件转码、合并、切割、压缩等等，如果需要单独配置请查看 [@vue/cli 文档](https://cli.vuejs.org/zh/guide/webpack.html)
 
 ### Babel
 
-Babel是用于转化ES6至ES5的工具，生成的项目已经自带了Babel 7
+Babel 是用于转化 ES6 至 ES5 的工具，生成的项目已经自带了 Babel 7
 
-可以使用[babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)，按需加载需要的package，减少最后打包文件的大小
+可以使用 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)，按需加载需要的package，减少最后打包文件的大小
 
 ```javascript
 modules.exports = {
@@ -144,9 +153,9 @@ modules.exports = {
 
 ### CSS
 
-#### CSS预处理器
+#### CSS 预处理器
 
-CSS预处理器默认选择Sass，但是在项目进行中，如果需要其他的预处理器，可以独立进行安装
+CSS 预处理器默认选择 Sass，但是在项目进行中，如果需要其他的预处理器，可以独立进行安装
 
 ```bash
 # Sass
@@ -161,9 +170,9 @@ npm install -D stylus-loader stylus
 
 #### PostCSS
 
-PostCSS是一款CSS后处理器，主要用于为CSS加上浏览器兼容前缀
+PostCSS 是一款 CSS 后处理器，主要用于为 CSS 加上浏览器兼容前缀
 
-在实际项目中，可根据具体情况使用[postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem)把`px`单位转成`rem`，从而实现不同设备下等比缩放的效果
+在实际项目中，可根据具体情况使用 [postcss-pxtorem](https://www.npmjs.com/package/postcss-pxtorem) 把 `px` 单位转成 `rem`，从而实现不同设备下等比缩放的效果
 
 ```javascript
 const pxtorem = require('postcss-pxtorem');
@@ -180,7 +189,7 @@ module.exports = {
 
 ## 部署
 
-构建完成的文件会生成一个`dist`文件夹，将 `dist` 目录里构建的内容部署到任何静态文件服务器中，但要确保正确的 `baseUrl`
+构建完成的文件会生成一个 `dist` 文件夹，将 `dist` 目录里构建的内容部署到任何静态文件服务器中，但要确保正确的 `baseUrl`
 
 ```javascript
 module.exports = {
@@ -190,7 +199,7 @@ module.exports = {
 }
 ```
 
-### 使用history模式的路由
+### 使用 history 模式的路由
 
 如果不想要很丑的 hash，我们可以用路由的 [history 模式](https://router.vuejs.org/zh/guide/essentials/history-mode.html)，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面
 
@@ -205,7 +214,7 @@ location / {
 
 前端静态内容是部署在与后端 API 不同的域名上，需要适当地配置 CORS
 
-以下是一个后端API的响应头示例
+以下是一个后端 API 的响应头示例
 
 ```
 Access-Control-Allow-Origin: https://foo.example
@@ -218,3 +227,45 @@ Access-Control-Allow-Credentials: true
 ### PWA
 
 使用了 PWA 插件，应用必须架设在 HTTPS 上，这样 Service Worker 才能被正确注册
+
+### 持续集成
+
+持续集成的流程是：
+
+* 使用 Git 推送到 Gitlab 仓库（会运行静态检查）
+* 进行构建
+* 进行单元测试
+* 部署代码到远程服务器
+
+```yaml
+# .gitlab-ci.yml
+build site:
+  image: node:8
+  stage: build
+  script:
+    - npm install --progress=false
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
+
+unit test:
+  image: node:8
+  stage: test
+  script:
+    - npm install --progress=false
+    - npm run unit
+
+deploy:
+  image: alpine
+  stage: deploy
+  script:
+    - apk add --no-cache rsync openssh
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
+    - chmod 600 ~/.ssh/id_dsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - rsync -rav --delete dist/ user@server.com:/your/project/path/
+```
+
