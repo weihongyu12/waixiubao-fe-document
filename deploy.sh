@@ -12,6 +12,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f git@github.com:weihongyu12/waixiubao-fe.github.io.git
+git push --set-upstream git@github.com:weihongyu12/waixiubao-fe.github.io.git master
 
 cd -
