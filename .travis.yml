@@ -4,5 +4,5 @@ node_js:
 sudo: false
 install:
 - 'yarn install'
-after_success:
-- ./deploy.sh
+script:
+- './deploy.sh'
