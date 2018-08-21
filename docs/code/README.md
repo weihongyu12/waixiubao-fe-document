@@ -249,7 +249,7 @@ cwebp -q 100 image.png -o image.webp
 
 ```css
 .picture {
-  background-image: url('image@3x.png 3x');
+  background-image: url('image@3x.png');
   background-image: image-set('image.png' 1x, 'image@2x.png' 2x, 'image@3x.png' 3x);
 }
 ```
