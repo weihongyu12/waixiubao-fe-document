@@ -247,6 +247,13 @@ cwebp -q 100 image.png -o image.webp
 <img src="image.png" srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt">
 ```
 
+```css
+.picture {
+  background-image: url('image@3x.png 3x');
+  background-image: image-set('image.png' 1x, 'image@2x.png' 2x, 'image@3x.png' 3x);
+}
+```
+
 ## 安全
 
 ### 使用 HTTPS
@@ -293,7 +300,7 @@ module.exports = {
 生成的 HTML 会在 `<link>` 和 `<script>` 添加 `crossorigin` 属性，浏览器将执行一个远程脚本的脚本而不发送用户凭据。
 
 ```html
-<script src="https://waixiubao.com/example.js"
+<script src="https://cdn.waixiubao.com/example.js"
         crossorigin="anonymous"></script>
 ```
 ::: tip
@@ -325,7 +332,7 @@ server {
 启用子资源完整性验证，生成的 HTML 会在 `<link>` 和 `<script>` 添加 `integrity` 属性。
 
 ```html
-<script src="https://waixiubao.com/example.js"
+<script src="https://cdn.waixiubao.com/example.js"
         integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
         crossorigin="anonymous"></script>
 ```
