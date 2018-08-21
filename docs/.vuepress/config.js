@@ -2,6 +2,7 @@
 
 module.exports = {
   title: '外修宝前端设计',
+  description: '适用于外修宝 Web 平台开发',
   serviceWorker: true,
   evergreen: true,
   themeConfig: {
