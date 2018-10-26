@@ -140,7 +140,6 @@ PWA 在构建时已经默认使用，PWA 将为外修宝带来以下优点：
 无论何时都不能关闭PWA。
 :::
 
-
 #### 代码分割
 
 当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。
@@ -175,6 +174,30 @@ DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机�
 <link rel="dns-prefetch" href="//cdn.waixiubao.com">
 <link rel="dns-prefetch" href="//api.waixiubao.com">
 ```
+
+#### 启用keep-alive
+
+当你用 `<keep-alive>` 包裹一个组件后，它的状态就会保留，因此就留在了内存里。
+
+`<keep-alive>` 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。`<keep-alive>` 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。
+
+这个技巧可以用来提升用户体验。主要用于保留组件状态或避免重新渲染。
+
+```vue
+<template>
+  <keep-alive>
+    <router-view/>
+  </keep-alive>
+</template>
+```
+
+::: tip
+当组件在 `<keep-alive>` 内被切换，它的 `activated` 和 `deactivated` 这两个生命周期钩子函数将会被对应执行。
+:::
+
+::: warning
+对于一些消耗内存的操作，仍然要注意不活动的组件的内存开销，可以在 `deactivated` 和 `beforeDestroy` 生命周期钩子销毁存在内存泄漏的实例。
+:::
 
 ### 服务器
 
