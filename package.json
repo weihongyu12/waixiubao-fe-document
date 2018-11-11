@@ -9,6 +9,6 @@
   },
   "author": "weihongyu",
   "devDependencies": {
-    "vuepress": "^1.0.0-alpha.16"
+    "vuepress": "^1.0.0-alpha.20"
   }
 }

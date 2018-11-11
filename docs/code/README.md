@@ -86,6 +86,7 @@ GraphQL 是一种新型的查询语言，目标是用于取代 RESTful，可用�
 ::: tip
 - 开启 DNS 预读取
 - 开启 HTTP/2 Server Push
+- 开启 preconnect
 - 开启 preload
 - 开启 prefetch
 :::
@@ -174,6 +175,23 @@ DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机�
 <link rel="dns-prefetch" href="//cdn.waixiubao.com">
 <link rel="dns-prefetch" href="//api.waixiubao.com">
 ```
+
+#### 帮助浏览器今早提供关键资源
+
+`preconnect` 提示浏览器在后台开始连接握手（DNS，TCP，TLS）以提高性能。
+
+`preload` 可以指明哪些资源是在页面加载完成后即刻需要的。对于这种即刻需要的资源，你可能希望在页面加载的生命周期的早期阶段就开始获取，在浏览器的主渲染机制介入前就进行预加载。这一机制使得资源可以更早的得到加载并可用，且更不易阻塞页面的初步渲染，进而提升性能。
+ 
+`prefetch` 链接预取是一种浏览器机制，其利用浏览器空闲时间来下载或预取用户在不久的将来可能访问的文档。网页向浏览器提供一组预取提示，并在浏览器完成当前页面的加载后开始静默地拉取指定的文档并将其存储在缓存中。当用户访问其中一个预取文档时，便可以快速的从浏览器缓存中得到。
+
+```html
+<link rel="preconnect" href="//cdn.waixiubao.com/">
+<link rel="preconnect" href="//api.waixiubao.com/">
+```
+
+::: tip
+@vue/cli 为 `preload` 和 `prefetch` 提供默认支持。
+:::
 
 #### 启用keep-alive
 
@@ -301,6 +319,34 @@ cwebp -q 100 image.png -o image.webp
 </picture>
 ```
 
+#### 使用 HTML5 视频代替 GIF 动画
+
+用 GIF 作为视频存储格式太可怕了，它们的大小通常非常巨大，导致较慢的页面加载时间和较高的流量。 使用 HTML5 视频，你可以将 GIF 的体积减小高达 98%，同时仍然保留浏览器中 GIF 格式的独特品质。
+
+[ffmpeg](https://ffmpeg.org/) 是一个免费的开源命令行工具，专为处理视频和音频文件而设计。它可用于将 GIF 动画转换为视频格式。
+
+将 GIF 转换为 MP4：
+
+```bash
+ffmepg -i animated.gif video.mp4
+```
+
+将 GIF 转换为 WebM：
+
+```bash
+ffmepg -i animated.gif -c vp9 video.webm
+```
+
+在 HTML 中启用视频：
+
+```html
+<video>
+  <source srcset="video.webm" type="video/webm">
+  <source srcset="video.mp4" type="video/mp4">
+  <img src="animated.gif" alt="image alt">
+</video>
+```
+
 #### 处理自适应图形
 
 在图片加载时，可以根据设备加载合适的图片，从而减少请求图片的文件大小。
@@ -320,6 +366,26 @@ cwebp -q 100 image.png -o image.webp
   background-image: url('image@3x.png');
   background-image: image-set('image.png' 1x, 'image@2x.png' 2x, 'image@3x.png' 3x);
 }
+```
+
+#### 懒加载屏幕外的图片
+
+轮播动画，滑块或非常长的页面等屏幕外的内容通常会加载图像，即使用户并不能立即在页面上看到它们。
+
+浏览器本身尚不支持懒加载，因此我们使用 JavaScript 来添加此功能。我们使用 [lazysizes](https://www.npmjs.com/package/lazysizes) 添加懒加载行为。
+
+```javascript
+import lazysizes from 'lazysizes';
+```
+
+```html
+<picture>
+  <source data-srcset="image.webp 1x, image@2x.webp 2x, image@3x.webp 3x" type="image/webp" class="lazyload">
+  <source data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" type="image/png" class="lazyload">
+  <img data-src="image.png" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt" class="lazyload">
+</picture>
+
+<img data-src="image.png" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt" class="lazyload">
 ```
 
 ## 安全
