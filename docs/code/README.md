@@ -380,9 +380,9 @@ import lazysizes from 'lazysizes';
 
 ```html
 <picture>
-  <source data-srcset="image.webp 1x, image@2x.webp 2x, image@3x.webp 3x" type="image/webp" class="lazyload">
-  <source data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" type="image/png" class="lazyload">
-  <img data-src="image.png" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt" class="lazyload">
+  <source data-sizes="auto" data-srcset="image.webp 1x, image@2x.webp 2x, image@3x.webp 3x" type="image/webp" class="lazyload">
+  <source data-sizes="auto" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" type="image/png" class="lazyload">
+  <img data-sizes="auto" data-src="image.png" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt" class="lazyload">
 </picture>
 
 <img data-src="image.png" data-srcset="image.png 1x, image@2x.png 2x, image@3x.png 3x" alt="image alt" class="lazyload">
