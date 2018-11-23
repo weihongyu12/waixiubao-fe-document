@@ -562,13 +562,13 @@ CSP 使服务器管理员能够通过制定浏览器能够执行的可信赖脚�
 使用 CSP 需要使用 `Content-Security-Policy`，同时，现代浏览器使用一段内联脚本来避免 Safari 10 重复加载脚本包，所以如果你在使用一套严格的 CSP，你需要这样显性地允许内联脚本，此外，子资源完整性(SRI)校验也是通过 CSP 配置完成的，所以完整的CSP请求头如下：
 
 ```
-Content-Security-Policy: default-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style;
+Content-Security-Policy: script-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style;
 ```
 
 ```
 # nginx.conf
 server {
-  add_header Content-Security-Policy "default-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style";
+  add_header Content-Security-Policy "script-src 'self' 'https://cdn.waixiubao.com' 'sha256-4RS22DYeB7U14dra4KcQYxmwt5HkOInieXK1NUMBmQI=';require-sri-for script style";
 }
 ```
 
@@ -607,6 +607,7 @@ server {
     "> 1%",
     "not ie <= 11",
     "not ie_mob <= 11",
+    "not op_mini all",
     "not dead"
   ]
 }

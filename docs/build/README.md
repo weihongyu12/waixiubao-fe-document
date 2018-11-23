@@ -217,7 +217,7 @@ location / {
 以下是一个后端 API 的响应头示例
 
 ```
-Access-Control-Allow-Origin: https://foo.example
+Access-Control-Allow-Origin: https://m.waixiubao.com
 Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS
 Access-Control-Allow-Headers: Authenticate
 Access-Control-Max-Age: 86400
@@ -240,7 +240,7 @@ Access-Control-Allow-Credentials: true
 ```yaml
 # .gitlab-ci.yml
 build site:
-  image: node:8
+  image: node:10
   stage: build
   script:
     - npm install --progress=false
@@ -251,11 +251,11 @@ build site:
       - dist
 
 unit test:
-  image: node:8
+  image: node:10
   stage: test
   script:
     - npm install --progress=false
-    - npm run unit
+    - npm run test:unit
 
 deploy:
   image: alpine
