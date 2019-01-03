@@ -26,7 +26,7 @@
 
 ## 错误监控
 
-错误监控采用 [Sentry](https://docs.sentry.io/clients/javascript/integrations/vue/)，可参考安装代码。
+错误监控采用 [Sentry](https://docs.sentry.io/platforms/javascript/vue/)，可参考安装代码。
 
 ## 用户行为统计
 
