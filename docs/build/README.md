@@ -230,12 +230,14 @@ Access-Control-Allow-Credentials: true
 
 ### 持续集成
 
-持续集成的流程是：
+持续集成的主要工作是：
 
 * 使用 Git 推送到 Gitlab 仓库（会运行静态检查）
-* 进行构建
-* 进行单元测试
-* 部署代码到远程服务器
+* 构建应用
+* 运行单元测试
+* 部署应用和相关文档到远程服务器
+
+可以使用 Gitlab CI 进行相关工作
 
 ```yaml
 # .gitlab-ci.yml
@@ -269,3 +271,17 @@ deploy:
     - rsync -rav --delete dist/ user@server.com:/your/project/path/
 ```
 
+#### 持续集成流程
+
+![CI](./images/ci.svg)
+
+- **编写代码：** 包括功能代码、相关测试和文档
+- **ESLint 检查：** 代码是否通过 ESLint 检查
+- **Commitlint 检查：** Commit Message 是否符合规范
+- **提交 MR：** 
+- **触发 CI 自动化测试：**
+  - 代码风格检查是否符合规范
+  - 应用是否构建完成
+  - 是否通过单元测试
+  - 单元测试覆盖率是否达标
+- **Code Review：** 至少经过一名高级工程师 Review
