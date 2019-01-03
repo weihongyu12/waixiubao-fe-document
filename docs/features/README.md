@@ -2,13 +2,13 @@
 
 ## 数据容灾兜底
 
-![数据容灾兜底](./images/data-backup.png)
+![数据容灾兜底](./images/data-backup.svg)
 
 ## 登录鉴权
 
 ### 账号登录
 
-![账号登录鉴权](./images/passport.png)
+![账号登录鉴权](./images/passport.svg)
 
 ### 第三方登录
 
@@ -22,7 +22,7 @@
 
 ## 文件上传
 
-![文件上传](./images/file-upload.png)
+![文件上传](./images/file-upload.svg)
 
 ## 错误监控
 

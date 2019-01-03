@@ -219,7 +219,7 @@ DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机�
 
 ### 服务器
 
-![HTTP缓存策略](./images/http-cache.png)
+![HTTP缓存策略](./images/http-cache.svg)
 
 #### 使用CDN
 
