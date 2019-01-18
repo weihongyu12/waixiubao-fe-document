@@ -328,13 +328,13 @@ cwebp -q 100 image.png -o image.webp
 将 GIF 转换为 MP4：
 
 ```bash
-ffmepg -i animated.gif video.mp4
+ffmpeg -i animated.gif video.mp4
 ```
 
 将 GIF 转换为 WebM：
 
 ```bash
-ffmepg -i animated.gif -c vp9 video.webm
+ffmpeg -i animated.gif -c vp9 video.webm
 ```
 
 在 HTML 中启用视频：
