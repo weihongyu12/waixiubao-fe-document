@@ -11,6 +11,7 @@ module.exports = {
       {text: '构建流程', link: '/build/'},
       {text: '测试', link: '/test/'},
       {text: '功能设计', link: '/features/'},
+      {text: 'RESTful API', link: '/restful-api/'},
     ],
     sidebar: 'auto',
   },
