@@ -15,5 +15,5 @@ features:
   details: 完善的构建、测试、部署流程，让产品可以快速迭代，同时还能保持高质量。
 - title: 面向未来
   details: 采用了 PWA、HTTP/2 等新技术，减少未来升级的成本。
-footer: Copyright © 2018 weihongyu
+footer: Copyright © 2019 weihongyu
 ---
