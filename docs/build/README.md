@@ -101,9 +101,12 @@ Pick a E2E testing solution:
 并通过此命令构建应用程序：
 
 ```bash
-npm run build 
-# yarn run build
+yarn build
 ```
+
+::: tip
+包管理工具统一使用 [yarn](https://yarnpkg.com/zh-Hans/)，因为其速度更快。
+:::
 
 通过构建，我们会得到：
 
@@ -159,13 +162,13 @@ CSS 预处理器默认选择 Sass，但是在项目进行中，如果需要其�
 
 ```bash
 # Sass
-npm install -D sass-loader node-sass
+yarn add -D sass-loader sass
 
 # Less
-npm install -D less-loader less
+yarn add -D less-loader less
 
 # Stylus
-npm install -D stylus-loader stylus
+yarn add -D stylus-loader stylus
 ```
 
 #### PostCSS
@@ -245,8 +248,8 @@ build site:
   image: node:10
   stage: build
   script:
-    - npm install --progress=false
-    - npm run build
+    - yarn install --frozen-lockfile
+    - yarn build
   artifacts:
     expire_in: 1 week
     paths:
@@ -256,8 +259,8 @@ unit test:
   image: node:10
   stage: test
   script:
-    - npm install --progress=false
-    - npm run test:unit
+    - yarn install --frozen-lockfile
+    - yarn test:unit
 
 deploy:
   image: alpine

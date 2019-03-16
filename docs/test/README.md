@@ -21,7 +21,7 @@ module.exports = {
 为了方便开发，我们使用了 `prettier-eslint-cli` 格式化代码
 
 ```bash
-npm install prettier-eslint-cli --save-dev
+yarn add prettier-eslint-cli --save-dev
 ```
 
 ```json{3}
@@ -33,7 +33,7 @@ npm install prettier-eslint-cli --save-dev
 ```
 
 ```bash
-npm run format
+yarn format
 ```
 
 ## 单元测试
