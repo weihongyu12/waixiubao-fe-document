@@ -176,7 +176,7 @@ DNS 请求需要的带宽非常小，但是延迟却有点高，这点在手机�
 <link rel="dns-prefetch" href="//api.waixiubao.com">
 ```
 
-#### 帮助浏览器今早提供关键资源
+#### 帮助浏览器尽早提供关键资源
 
 `preconnect` 提示浏览器在后台开始连接握手（DNS，TCP，TLS）以提高性能。
 
