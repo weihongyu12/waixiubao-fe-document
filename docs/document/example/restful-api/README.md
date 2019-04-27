@@ -64,7 +64,7 @@
 
 ## User
 
-### 获取多个用户信息 <Badge text="GET" type="tip" vertical="middle"/>
+### 获取多个用户信息 <CustomBadge text="GET" type="tip" vertical="middle"/>
 
 ```
 GET /user
@@ -108,7 +108,7 @@ GET /user
 ]
 ```
 
-### 获取单个用户信息 <Badge text="GET" type="tip" vertical="middle"/>
+### 获取单个用户信息 <CustomBadge text="GET" type="tip" vertical="middle"/>
 
 ```
 GET /user/:id
@@ -162,7 +162,7 @@ GET /user/:id
 }
 ```
 
-### 创建用户 <ExtendBadge text="POST" type="info" vertical="middle"/>
+### 创建用户 <CustomBadge text="POST" type="info" vertical="middle"/>
 
 ```
 POST /user
@@ -188,7 +188,7 @@ POST /user
 }
 ```
 
-### 更新用户 <Badge text="PUT" type="warn" vertical="middle"/>
+### 更新用户 <CustomBadge text="PUT" type="warn" vertical="middle"/>
 
 ```
 PUT /user/:id
@@ -220,7 +220,7 @@ PUT /user/:id
 }
 ```
 
-### 删除用户 <Badge text="DELETE" type="error" vertical="middle"/>
+### 删除用户 <CustomBadge text="DELETE" type="error" vertical="middle"/>
 
 ```
 DELETE /user/:id

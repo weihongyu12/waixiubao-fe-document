@@ -1,7 +1,13 @@
+<template functional>
+  <span
+    :class="[props.type]"
+    :style="{verticalAlign: props.vertical}"
+    class="badge">{{ props.text || slots().default }}</span>
+</template>
+
 <script>
 export default {
-  name: 'ExtendBadge',
-  functional: true,
+  name: 'CustomBadge',
   props: {
     type: {
       type: String,
@@ -13,14 +19,6 @@ export default {
       default: 'top'
     },
   },
-  render (h, { props, slots }) {
-    return h('span', {
-      class: ['badge', props.type],
-      style: {
-        verticalAlign: props.vertical
-      }
-    }, props.text || slots().default)
-  }
 };
 </script>
 
