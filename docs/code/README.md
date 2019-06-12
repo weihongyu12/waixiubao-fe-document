@@ -334,7 +334,13 @@ ffmpeg -i animated.gif video.mp4
 将 GIF 转换为 WebM：
 
 ```bash
-ffmpeg -i animated.gif -c vp9 video.webm
+ffmpeg -i animated.gif -c vp9 -b:v 0 video.webm
+```
+
+将 GIF 转换为 Ogg：
+
+```bash
+ffmpeg -i animated.gif -acodec libogg video.ogv
 ```
 
 在 HTML 中启用视频：
@@ -342,6 +348,7 @@ ffmpeg -i animated.gif -c vp9 video.webm
 ```html
 <video>
   <source srcset="video.webm" type="video/webm">
+  <source srcset="video.ogv" type="video/ogg; codecs='theora, vorbis'">
   <source srcset="video.mp4" type="video/mp4">
   <img src="animated.gif" alt="image alt">
 </video>
