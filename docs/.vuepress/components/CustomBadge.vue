@@ -1,8 +1,8 @@
-<template functional>
+<template>
   <span
-    :class="[props.type]"
-    :style="{verticalAlign: props.vertical}"
-    class="badge">{{ props.text || slots().default }}</span>
+    :class="[type]"
+    :style="{verticalAlign: vertical}"
+    class="badge">{{ text }}</span>
 </template>
 
 <script>
@@ -11,12 +11,15 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'tip'
+      default: 'tip',
     },
-    text: String,
+    text: {
+      type: String,
+      required: true,
+    },
     vertical: {
       type: String,
-      default: 'top'
+      default: 'top',
     },
   },
 };
