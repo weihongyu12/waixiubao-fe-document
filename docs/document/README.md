@@ -73,6 +73,7 @@ module.exports = {
 
 ## 示例
 
+- [Vue组件文档](example/vue-components/README.md)
 - [RESTful API文档](example/restful-api/README.md)
 - [数据字典（MySQL）](example/data-dictionary-mysql/README.md)
 - [产品需求文档](example/product-requirements-document/README.md)
