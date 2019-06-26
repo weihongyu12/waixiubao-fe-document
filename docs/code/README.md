@@ -288,6 +288,22 @@ server {
 }
 ```
 
+#### Brotli 压缩传输文件
+
+Brotli 可以提供比 gzip 和 deflate 更有效的无损压缩算法。
+
+```
+# nginx.conf
+server {
+  brotli on;
+  brotli_comp_level: 11;
+}
+```
+
+::: tip
+启用 Brotli 应该先安装 [ngx_brotli](https://github.com/google/ngx_brotli) 模块
+:::
+
 ### Cookie
 
 #### 减少 Cookie 大小
