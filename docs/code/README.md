@@ -325,6 +325,8 @@ Brotli 可以提供比 gzip 和 deflate 更有效的无损压缩算法。
 server {
   brotli on;
   brotli_comp_level: 11;
+  brotli_types text/plain text/html text/javascript text/css text/xml text/x-component application/javascript application/x-javascript application/xml application/json application/xhtml+xml application/rss+xml application/atom+xml application/x-font-ttf application/vnd.ms-fontobject image/svg+xml image/x-icon font/opentype font/x-woff font/ttf;
+  brotli_types on;
 }
 ```
 
