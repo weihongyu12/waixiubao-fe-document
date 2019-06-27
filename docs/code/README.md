@@ -285,6 +285,10 @@ Gzip 通常可以减少 70% 网页内容的大小，包括脚本、样式表、�
 # nginx.conf
 server {
   gzip on;
+  gzip_comp_level 9;
+  gzip_types text/plain text/html text/javascript text/css text/xml text/x-component application/javascript application/x-javascript application/xml application/json application/xhtml+xml application/rss+xml application/atom+xml application/x-font-ttf application/vnd.ms-fontobject image/svg+xml image/x-icon font/opentype font/x-woff font/ttf;
+  gzip_vary on;
+  gzip_static on;
 }
 ```
 
