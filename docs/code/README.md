@@ -334,6 +334,32 @@ server {
 启用 Brotli 应该先安装 [ngx_brotli](https://github.com/google/ngx_brotli) 模块
 :::
 
+使用 [brotli-webpack-plugin](https://www.npmjs.com/package/brotli-webpack-plugin) 进行预压缩
+
+```javascript
+// vue.config.js
+
+// $ yarn add brotli-webpack-plugin -D
+const BrotliPlugin = require('brotli-webpack-plugin');
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new BrotliPlugin({
+        asset: '[path].br[query]',
+        test: /\.(js|css)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+    ],
+  },
+};
+```
+
+::: warning
+从 Node.js 11.7.0 开始，其 zlib 模块中具有对 Brotli 压缩的原生支持，进入 LTS 阶段可以考虑使用 compression-webpack-plugin 进行预压缩。
+:::
+
 ### Cookie
 
 #### 减少 Cookie 大小
