@@ -292,6 +292,30 @@ server {
 }
 ```
 
+可以使用 [compression-webpack-plugin](https://github.com/webpack-contrib/compression-webpack-plugin) 进行预压缩，减少服务器CPU的压力
+
+```javascript
+// vue.config.js
+
+// $ yarn add compression-webpack-plugin -D
+const CompressionPlugin = require('compression-webpack-plugin');
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new CompressionPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css)$/,
+        cache: true,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+    ],
+  },
+};
+```
+
 #### Brotli 压缩传输文件
 
 Brotli 可以提供比 gzip 和 deflate 更有效的无损压缩算法。
