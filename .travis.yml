@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - 'lts/*'
-sudo: true
-install:
-  - 'yarn install'
+  - lts/*
 script:
-  - 'yarn run build'
+  - yarn run build
 deploy:
-  - 'sh deploy.sh'
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
