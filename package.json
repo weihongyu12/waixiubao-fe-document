@@ -4,8 +4,7 @@
   "description": "外修宝前端设计设计文档",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "test": "yarn install && yarn run build"
+    "build": "vuepress build docs"
   },
   "author": "weihongyu",
   "devDependencies": {
