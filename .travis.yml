@@ -4,6 +4,8 @@ node_js:
 sudo: true
 install:
 - 'yarn install'
+script:
+- yarn run build
 deploy:
   provider: pages
   skip-cleanup: true
