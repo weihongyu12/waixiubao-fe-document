@@ -4,5 +4,11 @@ node_js:
 sudo: true
 install:
 - 'yarn install'
-script:
-- 'sh deploy.sh'
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/.vuepress/dist
+  github-token: ${GH_TOKEN}
+  keep-history: true
+  on:
+    branch: master
