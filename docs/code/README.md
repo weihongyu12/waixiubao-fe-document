@@ -4,6 +4,25 @@
 
 ![应用框架](./images/framework.png)
 
+### 开发环境
+
+- [Node.js](https://nodejs.org/)：10.13.0以上
+- [yarn](https://www.yarnpkg.com/zh-Hans/)
+- IDE：推荐 [JetBrains WebStorm](http://www.jetbrains.com/webstorm/) 或者 [Visual Studio Code](https://code.visualstudio.com/)
+- [nginx](http://nginx.org/)：用于服务器部署
+
+
+### 主要技术栈
+
+- 构建方案：[Webpack](https://webpack.js.org/)
+- 框架：[Vue](https://cn.vuejs.org/)
+- UI组件库：[Mand Mobile](https://didi.github.io/mand-mobile/)
+- 路由：[Vue Router](https://router.vuejs.org/zh/)
+- 状态管理：[Vuex](https://vuex.vuejs.org/zh/)
+- CSS预处理器：[Scss](https://sass-lang.com/)
+- 静态检查：[ESLint](https://cn.eslint.org/) + [Airbnb JavaScript Style Guide](http://airbnb.io/javascript/) + [Vue Style Guide](https://cn.vuejs.org/v2/style-guide/)
+- 单元测试：[Mocha](https://mochajs.org/) + [Vue Test Utils](https://vue-test-utils.vuejs.org/zh/)
+
 ### 框架
 
 框架采用 [Vue](https://vuejs.org/)
