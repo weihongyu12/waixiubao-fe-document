@@ -11,7 +11,6 @@
 - IDE：推荐 [JetBrains WebStorm](http://www.jetbrains.com/webstorm/) 或者 [Visual Studio Code](https://code.visualstudio.com/)
 - [nginx](http://nginx.org/)：用于服务器部署
 
-
 ### 主要技术栈
 
 - 构建方案：[Webpack](https://webpack.js.org/)
@@ -698,15 +697,13 @@ server {
 
 浏览器只兼容最近 2 个版本和市场占有率大于 1% 的版本，不支持IE，不支持停止支持的浏览器。
 
-```json
-{
-  "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "not ie <= 11",
-    "not ie_mob <= 11",
-    "not op_mini all",
-    "not dead"
-  ]
-}
+```
+# .browserslistrc
+
+> 1%
+last 2 version
+not ie <= 11
+not ie_mob <= 11
+not op_mini all
+not dead
 ```
