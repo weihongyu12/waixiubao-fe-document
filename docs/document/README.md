@@ -86,8 +86,47 @@ module.exports = {
 - 浏览器特殊的HACK代码
 - 业务逻辑强相关的代码
 
+## 组件风格指南
+
+对于公共组件，需要提供样式使用指南，可以使用 [Vue Styleguidist](https://vue-styleguidist.github.io/)，通过自动化生成组件文档
+
+安装 `vue-cli-plugin-styleguidist`
+
+```bash
+yarn add vue-styleguidist -D
+```
+
+配置 `package.json`
+
+```json
+{
+  "scripts": {
+    "styleguide:dev": "vue-styleguidist styleguidist",
+    "styleguide:build": "vue-styleguidist styleguidist:build"
+  }
+}
+```
+
+配置 `styleguide.config.js`
+
+```javascript
+// styleguide.config.js
+
+module.exports = {
+  title: '外修宝风格指南',
+  defaultExample: true,
+  components: 'src/components/**/*.vue',
+  styleguideDir: 'style-guide',
+};
+```
+
+:::tip
+关于 Vue Styleguidist 的使用可以查看[官方文档](https://vue-styleguidist.github.io/docs/Documenting.html)
+:::
+
 ## 示例
 
+- [Vue组件风格指南](example/vue-style-guide/)
 - [Vue组件文档](example/vue-components/README.md)
 - [RESTful API文档](example/restful-api/README.md)
 - [数据字典（MySQL）](example/data-dictionary-mysql/README.md)
