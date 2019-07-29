@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # 产品需求文档 示例文档
 
 <TOC/>

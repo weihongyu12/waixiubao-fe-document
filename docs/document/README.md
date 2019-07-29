@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # 文档
 
 ## 格式

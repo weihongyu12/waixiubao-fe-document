@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # RESTful API
 
 ## 快速开始

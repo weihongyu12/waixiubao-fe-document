@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # 示例文档
 
 - [Vue组件文档](vue-components/README.md)

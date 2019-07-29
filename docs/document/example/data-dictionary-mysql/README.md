@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # 数据字典（MySQL） 示例文档
 
 ## 表 user

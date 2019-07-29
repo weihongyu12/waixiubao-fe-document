@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # RESTful API 示例文档
 
 ## 通用

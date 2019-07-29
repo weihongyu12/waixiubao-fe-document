@@ -1,3 +1,7 @@
+---
+lang: zh-cmn-Hans-CN
+---
+
 # Field 输入框（Vue 组件示例文档）
 
 [[TOC]]

@@ -1,5 +1,6 @@
 ---
 home: true
+lang: zh-cmn-Hans-CN
 actionText: Get Started →
 actionLink: /code/
 features:
