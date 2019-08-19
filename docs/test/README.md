@@ -4,9 +4,11 @@ lang: zh-cmn-Hans-CN
 
 # 测试
 
-## 静态检查
+## 代码风格
 
-静态检查工具使用 ESLint，在出现错误时，不允许构建，并且不允许提交到Git
+### 代码检查
+
+代码检查工具使用 ESLint，在出现错误时，不允许构建，并且不允许提交到Git
 
 ESLint 检查采用以下两个标准同时使用：
 
@@ -22,16 +24,27 @@ module.exports = {
 }
 ```
 
-为了方便开发，我们使用了 `prettier-eslint-cli` 格式化代码
+### 格式化
+
+为了方便开发，我们使用了 Git Hooks 和 `prettier-eslint-cli` 格式化代码
 
 ```bash
-yarn add prettier-eslint-cli --save-dev
+yarn add yorkie lint-staged prettier-eslint-cli --save-dev
 ```
 
-```json{3}
+```json{3,5-13}
 {
   "scripts": {
-    "format": "prettier-eslint \"src/**/*.js\" \"src/**/*.vue\""
+    "format": "prettier-eslint src/**/*.{js,jsx,ts,tsx,vue} --write"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "vue-cli-service lint --write",
+      "git add"
+    ]
   }
 }
 ```
@@ -53,7 +66,6 @@ yarn format
 自动化测试使得大团队中的开发者可以维护复杂的基础代码。
 
 [Vue Test Utils](https://vue-test-utils.vuejs.org/) 是 Vue 组件单元测试的官方库。配合 [mocha-webpack](https://github.com/zinserjan/mocha-webpack) 做为测试运行器，mocha-webpack 是一个 webpack + Mocha 的包裹器，同时包含了更顺畅的接口和侦听模式。这些设置的好处在于我们能够通过 webpack + vue-loader 得到完整的单文件组件支持，但这本身是需要很多配置的。
-
 
 ## 集成测试（e2e测试）
 

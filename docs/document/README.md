@@ -120,6 +120,9 @@ module.exports = {
   title: '外修宝风格指南',
   defaultExample: true,
   components: 'src/components/**/*.vue',
+  usageMode: 'expand',
+  exampleMode: 'expand',
+  codeSplit: true,
   styleguideDir: 'style-guide',
 };
 ```

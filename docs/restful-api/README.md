@@ -8,8 +8,8 @@ lang: zh-cmn-Hans-CN
 
 | 操作 | Methods | SQL | Model | 路径 |
 |-----|---------|------|------|------|
-| 读取（READ） | GET | SELECT | model.collection.index | /collection |
-| 读取（READ） | GET | SELECT | model.collection.show | /collection/:id |
+| 读取（Read） | GET | SELECT | model.collection.index | /collection |
+| 读取（Read） | GET | SELECT | model.collection.show | /collection/:id |
 | 创建（Create） | POST | INSERT | model.collection.create | /collection |
 | 更新（Update） | PUT | UPDATE | model.collection.update | /collection/:id |
 | 删除（Delete） | DELETE | DELETE | model.collection.destroy | /collection/:id |
@@ -31,8 +31,8 @@ https://api.waixiubao.com/
 
 | 操作 | Methods | 路径 | 响应状态行 | 响应体 |
 |-----|---------|------|-----------|-------|
-| 读取（READ） | GET  | /collection | 200 OK | JSON 数组 |
-| 读取（READ） | GET  | /collection/:id | 200 OK | JSON 对象 |
+| 读取（Read） | GET  | /collection | 200 OK | JSON 数组 |
+| 读取（Read） | GET  | /collection/:id | 200 OK | JSON 对象 |
 | 创建（Create） | POST  | /collection | 201 Created | JSON 对象 |
 | 更新（Update） | PUT  | /collection/:id | 200 OK | JSON 对象 |
 | 删除（Delete） | DELETE  | /collection/:id | 204 No Content |  |

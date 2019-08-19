@@ -7,15 +7,15 @@ lang: zh-cmn-Hans-CN
 ## 通用
 
 ::: tip
-关于 RESTful API 的设计可以参考 [RESTful API 设计文档](../restful-api/README.md)
+关于 RESTful API 的设计可以参考 [RESTful API 设计文档](../restful-api/ReadME.md)
 :::
 
 ### Success
 
 | 操作 | 响应状态行 |
 |-----|-------|
-| 读取（READ） | 200 OK |
-| 读取（READ） | 200 OK |
+| 读取（Read） | 200 OK |
+| 读取（Read） | 200 OK |
 | 创建（Create） | 201 Created |
 | 更新（Update） | 200 OK |
 | 删除（Delete） | 204 No Content |

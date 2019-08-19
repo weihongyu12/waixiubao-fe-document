@@ -235,7 +235,7 @@ Access-Control-Allow-Credentials: true
 
 使用了 PWA 插件，应用必须架设在 HTTPS 上，这样 Service Worker 才能被正确注册
 
-### 持续集成
+## 持续集成
 
 持续集成的主要工作是：
 
@@ -266,6 +266,15 @@ unit test:
     - yarn install --frozen-lockfile
     - yarn test:unit
 
+e2e test:
+  image: node:10
+  services:
+    - selenium/standalone-chrome
+  stage: test
+  script:
+    - yarn install --frozen-lockfile
+    - yarn test:e2e
+
 deploy:
   image: alpine
   stage: deploy
@@ -278,7 +287,7 @@ deploy:
     - rsync -rav --delete dist/ user@server.com:/your/project/path/
 ```
 
-#### 持续集成流程
+### 持续集成流程
 
 ![CI](./images/ci.svg)
 

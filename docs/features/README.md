@@ -34,6 +34,4 @@ lang: zh-cmn-Hans-CN
 
 ## 用户行为统计
 
-用户行为统计[百度统计](https://tongji.baidu.com/web/welcome/login)，可参考安装代码。
-
-## 性能监控
+用户行为统计[友盟+](https://web.umeng.com/main.php?spm=a211g2.182260.0.0.6eeb9761FrLzzK&c=user&a=index)，可参考安装代码。
