@@ -302,3 +302,164 @@ deploy:
   - 单元测试覆盖率是否达标
 - **Code Review：** 至少经过一名高级工程师 Review
 - **合并到主分支：** 将进行第二轮 CI 自动化测试
+
+### Commitlint
+
+为了方便追踪历史记录，并生成响应的 Changelog，建议使用 Commitlint 对commit message 进行校验
+
+#### 安装及配置
+
+```bash
+yarn add yorkie @commitlint/cli @commitlint/config-conventional -D
+```
+
+```json{2-4}
+{
+  "gitHooks": {
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  }
+}
+```
+
+```js
+// commitlint.config.js
+
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'build',
+        'ci',
+        'chore',
+        'docs',
+        'feat',
+        'fix',
+        'perf',
+        'refactor',
+        'revert',
+        'style',
+        'test',
+        'improvement',
+      ],
+    ],
+  },
+};
+```
+
+#### 使用
+
+:::tip
+参考 [Conventional Commits](https://www.conventionalcommits.org/zh/)
+:::
+
+Commit Message 信息格式统一如下：
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+例如
+
+```
+fix(core): correct minor typos in code
+
+see the issue for details on the typos fixed
+
+close #12
+```
+
+##### type
+
+type用于说明 commit 的类别，只允许使用下面标识：
+
+- build: 构建过程或辅助工具的变动
+- ci: 对CI配置文件和脚本的更改
+- chore: 其他的辅助更改
+- docs: 文档更改
+- feat: 新功能
+- fix: bug 修复
+- perf: 改进性能的代码更改
+- refactor: 重构（即不是新增功能，也不是修改bug的代码变动）
+- revert: commit 回滚
+- style: 格式（不影响代码运行的变动）
+- test: 测试代码的变动
+- improvement: 功能改进或优化
+
+###### revert
+
+如果当前 Commit 用于撤销以前的 Commit，则必须以 `revert:` 开头，后面跟着被撤销 Commit Message
+
+Body 部分的格式是固定的，必须写成`This reverts commit <hash>.`，其中的hash是被撤销 Commit 的 SHA 标识符
+
+比如
+
+```
+revert: fix(core): correct minor typos in code
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+```
+
+##### scope
+
+可选，scope 用于说明 Commit 影响的范围
+
+##### subject
+
+subject 是 Commit 目的的简短描述，不超过50个字符
+
+##### body
+
+可选，body 部分是对本次 Commit 的详细描述，可以分成多行
+
+##### footer
+
+可选，只用于两种情况
+
+###### 不兼容变动
+
+如果当前代码与上一个版本不兼容，则 footer 部分以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法
+
+```
+BREAKING CHANGE: isolate scope bindings definition has changed.
+
+  To migrate the code follow the example below:
+
+  Before:
+
+  scope: {
+    myAttr: 'attribute',
+  }
+
+  After:
+
+  scope: {
+    myAttr: '@',
+  }
+
+  The removed `inject` wasn't generaly useful for directives so there should be no code using it.
+```
+
+###### 关闭 Issue
+
+如果当前 Commit 针对某个 Issue，那么可以在 footer 部分关闭这个 Issue
+
+```
+Close #234
+```
+
+也可以一次关闭多个 issue 。
+
+```
+Close #123, #245, #992
+```
+
+:::tip
+理论上，每次提交都应该有一个明确的 Issue
+:::
