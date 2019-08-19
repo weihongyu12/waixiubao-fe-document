@@ -42,7 +42,7 @@ yarn add yorkie lint-staged prettier-eslint-cli --save-dev
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": [
-      "vue-cli-service lint --write",
+      "prettier-eslint --write",
       "git add"
     ]
   }
