@@ -9897,10 +9897,10 @@ void-elements@^2.0.1:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
-vue-docgen-api@^3.22.3:
-  version "3.22.3"
-  resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-3.22.3.tgz#fad0363ae008cc4d532a10d211ebf572dad17c52"
-  integrity sha512-1kjHjxs3DWGn5bQBB5X1O1rr3OliT+Vwm0kXk7Ax0Xg1GbkBRy2M9exXqbbXQrKt46AXTIq/69uvNAFh5VyRnw==
+vue-docgen-api@^3.24.2:
+  version "3.24.2"
+  resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-3.24.2.tgz#a71bfad53f83d0ffce210e1cb601c10537079c71"
+  integrity sha512-seZiKhzBMxuK3dU23pf0kYh7k33gtDvWJUEdVePK6purcCRIuTKpTsu02wBS1U+EwlDZR7FUkeyYuQydAuvR0Q==
   dependencies:
     "@babel/parser" "^7.2.3"
     "@babel/types" "^7.0.0"
@@ -9918,10 +9918,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
   integrity sha512-KmvZVtmM26BQOMK1rwUZsrqxEGeKiYSZGA7SNWE6uExx8UX/cj9hq2MRV/wWC3Cq6AoeDGk57rL9YMFRel/q+g==
 
-vue-inbrowser-compiler@^3.22.1:
-  version "3.22.1"
-  resolved "https://registry.yarnpkg.com/vue-inbrowser-compiler/-/vue-inbrowser-compiler-3.22.1.tgz#0ba62792469d8b20e341412d7ea68c1c1f5df8a1"
-  integrity sha512-cqdUozNKhqD9f+JmVGM3gmYdH+Tn7huap2ijRCM1/EYtUcurSdDym84iyAZZw5KRdl+j/5U9V3TZM3SH3jIMHA==
+vue-inbrowser-compiler@^3.23.0:
+  version "3.23.0"
+  resolved "https://registry.yarnpkg.com/vue-inbrowser-compiler/-/vue-inbrowser-compiler-3.23.0.tgz#ce71d09819fac836870fc92fc6e5b4779e8e8183"
+  integrity sha512-DaIcYHinWyt9pJgWM02sJ7bdFAQba9YYQklQ8Fitk7kz+TMyeCeUNwntJQAk+6bplx27qCHyFqXm8yvL0xBwQA==
   dependencies:
     acorn "^6.1.1"
     acorn-jsx "^5.0.1"
@@ -9967,10 +9967,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-styleguidist@^3.22.3:
-  version "3.22.3"
-  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.22.3.tgz#38a4f1380c4789d32a8eacd1fcfdae37a12960b7"
-  integrity sha512-8pS0xPWg0E85o9/m1nU+o0u9P406J86oBV8KAAwOP7nOa3oLHlTF2xsp70bnZYtZfH+M3IB/S0jznu5lW+Vscw==
+vue-styleguidist@^3.24.2:
+  version "3.24.2"
+  resolved "https://registry.yarnpkg.com/vue-styleguidist/-/vue-styleguidist-3.24.2.tgz#f564dde52c3ff7da38d73dd2c26d48117f622a15"
+  integrity sha512-c00EKBPrIT00Oq2BPOZSaNummIS2NlDbr3k4B8tFun3XU8Ja6oYBk4/c3SzqT7cYTgQPjw5e2JmjfQp6t8/Z4w==
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     ast-types "^0.12.2"
@@ -9995,7 +9995,7 @@ vue-styleguidist@^3.22.3:
     kleur "^2.0.1"
     leven "^2.1.0"
     loader-utils "^1.1.0"
-    lodash "^4.17.10"
+    lodash "^4.17.15"
     lru-cache "^4.1.3"
     mini-html-webpack-plugin "^0.2.3"
     minimist "^1.2.0"
@@ -10017,8 +10017,8 @@ vue-styleguidist@^3.22.3:
     style-loader "^0.21.0"
     terser-webpack-plugin "^1.3.0"
     to-ast "^1.0.0"
-    vue-docgen-api "^3.22.3"
-    vue-inbrowser-compiler "^3.22.1"
+    vue-docgen-api "^3.24.2"
+    vue-inbrowser-compiler "^3.23.0"
     webpack-dev-server "^3.7.1"
     webpack-merge "^4.0.0"
 

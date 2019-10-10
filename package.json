@@ -21,7 +21,7 @@
     "@vuepress/plugin-pwa": "^1.1.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1",
-    "vue-styleguidist": "^3.22.3",
+    "vue-styleguidist": "^3.24.2",
     "vuepress": "^1.1.0"
   }
 }
