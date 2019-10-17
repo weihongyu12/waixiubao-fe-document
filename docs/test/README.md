@@ -65,7 +65,7 @@ yarn format
 
 自动化测试使得大团队中的开发者可以维护复杂的基础代码。
 
-[Vue Test Utils](https://vue-test-utils.vuejs.org/) 是 Vue 组件单元测试的官方库。配合 [mocha-webpack](https://github.com/zinserjan/mocha-webpack) 做为测试运行器，mocha-webpack 是一个 webpack + Mocha 的包裹器，同时包含了更顺畅的接口和侦听模式。这些设置的好处在于我们能够通过 webpack + vue-loader 得到完整的单文件组件支持，但这本身是需要很多配置的。
+[Vue Test Utils](https://vue-test-utils.vuejs.org/) 是 Vue 组件单元测试的官方库。配合 [mochapack](https://github.com/sysgears/mochapack) 做为测试运行器，mocha-webpack 是一个 webpack + Mocha 的包裹器，同时包含了更顺畅的接口和侦听模式。这些设置的好处在于我们能够通过 webpack + vue-loader 得到完整的单文件组件支持，但这本身是需要很多配置的。
 
 ## E2E测试（端对端测试）
 

@@ -6,7 +6,7 @@ lang: zh-cmn-Hans-CN
 
 ## 手脚架
 
-手脚架使用 [@vue/cli 3.x](https://cli.vuejs.org/)，启用自定义配置，配置流程如下：
+手脚架使用 [@vue/cli 4.x](https://cli.vuejs.org/)，启用自定义配置，配置流程如下：
 
 ```bash
 # 选择项目所需要的特性：
@@ -18,7 +18,7 @@ lang: zh-cmn-Hans-CN
 # Linter / Formatter （使用静态检查/格式化）
 # Unit Testing （启用单元测试）
 # E2E Testing（启用E2E测试）
-Check the features needed for your project: 
+Check the features needed for your project:
  (*) Babel
  ( ) TypeScript
  (*) Progressive Web App (PWA) Support
@@ -44,10 +44,11 @@ Use history mode for router? (Requires proper server setup for index fallback in
 :::
 
 ```bash
-# 选择CSS预处理器：SCSS/SASS
-Pick a CSS pre-processor:
-> SCSS/SASS
-  LESS
+# 选择CSS预处理器（PostCSS, Autoprefixer 和 CSS Modules 默认支持）：Sass/SCSS (with dart-sass)
+Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+> Sass/SCSS (with dart-sass)
+  Sass/SCSS (with node-sass)
+  Less
   Stylus
 ```
 
@@ -55,14 +56,9 @@ Pick a CSS pre-processor:
 其他预处理器如果需要可以独立安装
 :::
 
-::: tip
-PostCSS, Autoprefixer 和 CSS Modules 默认支持
-:::
-
 ```bash
 # 选择linter / formatter配置：ESLint + Airbnb config
-Pick a linter / formatter config: 
-  TSLint
+Pick a linter / formatter config:
   ESLint with error prevention only
 > ESLint + Airbnb config
   ESLint + Standard config
@@ -77,17 +73,31 @@ Pick additional lint features:
 ```
 
 ```bash
-# 选择单元测试框架：Mocha + Chai
-Pick a unit testing solution: 
+# 选择单元测试方案：Mocha + Chai
+Pick a unit testing solution:
 > Mocha + Chai
   Jest
 ```
 
 ```bash
-# 选择E2E测试框架：Nightwatch
+# 选择E2E测试方案：Nightwatch
 Pick a E2E testing solution:
   Cypress (Chrome only)
-> Nightwatch (Selenium-based)
+> Nightwatch (WebDriver-based) 
+```
+
+```bash
+# 选择浏览器以运行端到端测试：Chrome, Firefox
+Pick browsers to run end-to-end test on
+ (*) Chrome
+ (*) Firefox
+```
+
+```bash
+# 在哪里放置Babel，PostCSS，ESLint等的配置：In dedicated config files（在专用配置文件中）
+Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?
+> In dedicated config files
+  In package.json 
 ```
 
 ## 构建命令
