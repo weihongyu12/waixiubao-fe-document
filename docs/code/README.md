@@ -10,7 +10,7 @@ lang: zh-cmn-Hans-CN
 
 ### 开发环境
 
-- [Node.js](https://nodejs.org/)：10.13.0以上
+- [Node.js](https://nodejs.org/)：12.13.0以上
 - [yarn](https://www.yarnpkg.com/zh-Hans/)
 - IDE：推荐 [JetBrains WebStorm](http://www.jetbrains.com/webstorm/) 或者 [Visual Studio Code](https://code.visualstudio.com/)
 - [nginx](http://nginx.org/)：用于服务器部署

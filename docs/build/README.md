@@ -259,7 +259,7 @@ Access-Control-Allow-Credentials: true
 ```yaml
 # .gitlab-ci.yml
 build site:
-  image: node:10
+  image: node:12
   stage: build
   script:
     - yarn install --frozen-lockfile
@@ -270,14 +270,14 @@ build site:
       - dist
 
 unit test:
-  image: node:10
+  image: node:12
   stage: test
   script:
     - yarn install --frozen-lockfile
     - yarn test:unit
 
 e2e test:
-  image: node:10
+  image: node:12
   services:
     - selenium/standalone-chrome
   stage: test
