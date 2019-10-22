@@ -299,13 +299,20 @@ server {
 }
 ```
 
-#### Gzip 压缩传输文件
+#### Brotli 和 Gzip 压缩传输文件
 
 Gzip 通常可以减少 70% 网页内容的大小，包括脚本、样式表、图片等文件。Gzip 比 deflate 更高效，主流服务器都有相应的压缩支持模块。
+
+Brotli 可以提供比 gzip 和 deflate 更有效的无损压缩算法。
 
 ```
 # nginx.conf
 server {
+  brotli on;
+  brotli_comp_level: 11;
+  brotli_types text/plain text/html text/javascript text/css text/xml text/x-component application/javascript application/x-javascript application/xml application/json application/xhtml+xml application/rss+xml application/atom+xml application/x-font-ttf application/vnd.ms-fontobject image/svg+xml image/x-icon font/opentype font/x-woff font/ttf;
+  brotli_static on;
+
   gzip on;
   gzip_comp_level 9;
   gzip_types text/plain text/html text/javascript text/css text/xml text/x-component application/javascript application/x-javascript application/xml application/json application/xhtml+xml application/rss+xml application/atom+xml application/x-font-ttf application/vnd.ms-fontobject image/svg+xml image/x-icon font/opentype font/x-woff font/ttf;
@@ -313,6 +320,10 @@ server {
   gzip_static on;
 }
 ```
+
+::: tip
+启用 Brotli 应该先安装 [ngx_brotli](https://github.com/google/ngx_brotli) 模块
+:::
 
 可以使用 [compression-webpack-plugin](https://github.com/webpack-contrib/compression-webpack-plugin) 进行预压缩，减少服务器CPU的压力
 
@@ -325,11 +336,23 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   configureWebpack: {
     plugins: [
+      // brotli 预压缩
+      new CompressionPlugin({
+        filename: '[path].br[query]',
+        algorithm: 'brotliCompress',
+        test: /\.(js|css|svg)$/,
+        cache: true,
+        compressionOptions: { level: 11 },
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+      // gzip 预压缩
       new CompressionPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
-        test: /\.(js|css)$/,
+        test: /\.(js|css|svg)$/,
         cache: true,
+        compressionOptions: { level: 9 },
         threshold: 10240,
         minRatio: 0.8,
       }),
@@ -337,50 +360,6 @@ module.exports = {
   },
 };
 ```
-
-#### Brotli 压缩传输文件
-
-Brotli 可以提供比 gzip 和 deflate 更有效的无损压缩算法。
-
-```
-# nginx.conf
-server {
-  brotli on;
-  brotli_comp_level: 11;
-  brotli_types text/plain text/html text/javascript text/css text/xml text/x-component application/javascript application/x-javascript application/xml application/json application/xhtml+xml application/rss+xml application/atom+xml application/x-font-ttf application/vnd.ms-fontobject image/svg+xml image/x-icon font/opentype font/x-woff font/ttf;
-  brotli_static on;
-}
-```
-
-::: tip
-启用 Brotli 应该先安装 [ngx_brotli](https://github.com/google/ngx_brotli) 模块
-:::
-
-使用 [brotli-webpack-plugin](https://www.npmjs.com/package/brotli-webpack-plugin) 进行预压缩
-
-```javascript
-// vue.config.js
-
-// $ yarn add brotli-webpack-plugin -D
-const BrotliPlugin = require('brotli-webpack-plugin');
-
-module.exports = {
-  configureWebpack: {
-    plugins: [
-      new BrotliPlugin({
-        asset: '[path].br[query]',
-        test: /\.(js|css)$/,
-        threshold: 10240,
-        minRatio: 0.8,
-      }),
-    ],
-  },
-};
-```
-
-::: warning
-从 Node.js 11.7.0 开始，其 zlib 模块中具有对 Brotli 压缩的原生支持，进入 LTS 阶段可以考虑使用 compression-webpack-plugin 进行预压缩。
-:::
 
 ### Cookie
 
