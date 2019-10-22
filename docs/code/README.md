@@ -688,7 +688,7 @@ server {
 | Firefox | B |
 | Edge | C |
 | Internet Explorer | D |
-| UC Browser for Android | B |
+| UC Browser for Android | A |
 | QQ Browser | A |
 | X5 TBS | A |
 
