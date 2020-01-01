@@ -259,7 +259,7 @@ Access-Control-Allow-Credentials: true
 ```yaml
 # .gitlab-ci.yml
 build site:
-  image: node:12
+  image: node:lts
   stage: build
   script:
     - yarn install --frozen-lockfile
@@ -270,17 +270,21 @@ build site:
       - dist
 
 unit test:
-  image: node:12
+  image: node:lts
   stage: test
   script:
     - yarn install --frozen-lockfile
     - yarn test:unit
 
 e2e test:
-  image: node:12
-  services:
-    - selenium/standalone-chrome
+  image: node:lts
   stage: test
+  before_script:
+    - apt-get update
+    - apt-get install -yq libnss3 unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - curl -sS -o - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+    - apt install -y ./google-chrome-stable_current_amd64.deb
   script:
     - yarn install --frozen-lockfile
     - yarn test:e2e
@@ -294,8 +298,12 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_dsa
     - chmod 600 ~/.ssh/id_dsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - rsync -rav --delete dist/ user@server.com:/your/project/path/
+    - rsync -rav --delete $LOCAL_PATH $USERNAME@$HOST_PATH
 ```
+
+::: tip
+如果依赖安装过慢可以使用[阿里云镜像](https://developer.aliyun.com/mirror)
+:::
 
 ### 持续集成流程
 
