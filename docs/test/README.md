@@ -74,3 +74,40 @@ yarn format
 一般情况下，自测需要人为手动地进行测试，但这样会有两个缺点，第一，需要测试的区域数量过于巨大，相似的测试操作过于频繁，浪费了人力，也影响了测试的效率；第二，人为的自测由于没有统一的自测规范，因此在测试时很容易有所疏漏，从而忽视了一些看似微小，实则影响巨大的 bug，花费了大量的时间，却得不到自测所需要的效果。针对这种情况，我们产生了实施自动化测试的想法。
 
 通过 [@vue/cli](https://cli.vuejs.org/) 脚手架生成项目，我们会使用 [Nightwatch.js](https://nightwatchjs.org/)，为项目创建了一个自动化测试脚本，对项目的测试用例进行自动化测试，从而节约测试成本。
+
+使用 E2E 测试之前，需要安装相关的 WebDriver：
+- [chromedriver](https://www.npmjs.com/package/chromedriver) - 在 Google Chrome 中运行测试
+- [geckodriver](https://www.npmjs.com/package/geckodriver) - 在 Firefox 中运行测试
+
+```bash
+yarn add chromedriver geckodriver
+```
+
+:::tip
+如果在 CI 环境使用，建议在命令行加上 `--headless` 参数
+```bash
+yarn run test:e2e --headless
+```
+:::
+
+:::warning
+如果在容器（比如 CI 环境）运行 Chrome 浏览器下的 E2E 测试，需要手动关闭沙箱模式才能正确运行测试
+```json{6}
+{
+  "test_settings": {
+    "chrome": {
+      "desiredCapabilities": {
+        "chromeOptions": {
+          "args": ["no-sandbox"]
+        } 
+      }
+    }
+  }
+}
+```
+> [https://github.com/nightwatchjs/nightwatch/wiki/Chrome-Setup](https://github.com/nightwatchjs/nightwatch/wiki/Chrome-Setup)
+:::
+
+:::warning
+由于 `@vue/cli-plugin-e2e-nightwatch` 并不能正确支持 Selenium Server，所以进行 E2E 测试时，不使用 Selenium Server
+:::
