@@ -11,17 +11,17 @@
   },
   "author": "weihongyu",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.5.0"
   },
   "devDependencies": {
-    "@vue/cli-service": "^4.1.2",
-    "@vuepress/plugin-active-header-links": "^1.2.0",
-    "@vuepress/plugin-back-to-top": "^1.2.0",
-    "@vuepress/plugin-medium-zoom": "^1.2.0",
-    "@vuepress/plugin-pwa": "^1.2.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
-    "vue-styleguidist": "^4.2.3",
-    "vuepress": "^1.2.0"
+    "@vue/cli-service": "^4.4.6",
+    "@vuepress/plugin-active-header-links": "^1.5.2",
+    "@vuepress/plugin-back-to-top": "^1.5.2",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
+    "@vuepress/plugin-pwa": "^1.5.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-styleguidist": "^4.26.0",
+    "vuepress": "^1.5.2"
   }
 }
