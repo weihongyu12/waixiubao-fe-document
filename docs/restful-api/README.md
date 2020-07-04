@@ -208,7 +208,7 @@ Authorization: <type> <credentials>
 
 ## 操作
 
-| 操作 | Methods | 路径 | 响应状态行 | 响应体 |
+| 操作 | Methods | 示例路径 | 响应状态行 | 响应体 |
 |-----|---------|------|-----------|-------|
 | 读取（Read） | GET  | /article | 200 OK | JSON 数组 |
 | 读取（Read） | GET  | /article/:id | 200 OK | JSON 对象 |
@@ -282,7 +282,7 @@ const response = await model.article.index({
 HTTP/1.1 200 OK
 ```
 
-响应体：JSON对象，该对象至少需要包括下列信息
+响应体：JSON 对象，该对象至少需要包括下列信息
 
 | 参数 | 类型 | 说明 |
 |-----|-----|------|
@@ -321,11 +321,13 @@ HTTP/1.1 200 OK
 
 ### 读取数据详细信息
 
+示例请求行
+
 ```
 GET /article/:id
 ```
 
-Model
+示例 Model
 
 ```js
 const response = await model.article.show(id)
@@ -337,7 +339,7 @@ const response = await model.article.show(id)
 HTTP/1.1 200 OK
 ```
 
-响应体：JSON对象
+响应体：JSON 对象
 
 ```json
 {
@@ -352,11 +354,13 @@ HTTP/1.1 200 OK
 
 ### 创建
 
+示例请求行
+
 ```
 POST /article
 ```
 
-Model
+示例 Model
 
 ```js
 const response = await model.article.create(params)
@@ -368,21 +372,23 @@ const response = await model.article.create(params)
 HTTP/1.1 201 Created
 ```
 
-响应体：JSON对象
+响应体：JSON 对象，包含了新插入数据的 ID
 
 ```json
 {
-  "topicId": "57ea257b3670ca3f44c5beb6"
+  "id": "57ea257b3670ca3f44c5beb6"
 }
 ```
 
 ### 更新
 
+示例请求行
+
 ```
 PUT /article/:id
 ```
 
-Model
+示例 Model
 
 ```js
 const response = await model.article.update(id, params)
@@ -394,11 +400,11 @@ const response = await model.article.update(id, params)
 HTTP/1.1 200 OK
 ```
 
-响应体：JSON对象
+响应体：JSON 对象，包含了更新的数据的 ID
 
 ```json
 {
-  "topicId": "57ea257b3670ca3f44c5beb6"
+  "id": "57ea257b3670ca3f44c5beb6"
 }
 ```
 
